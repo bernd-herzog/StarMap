@@ -9,19 +9,6 @@ public class HelloSensorEventListener implements SensorEventListener {
 	AverageVector aM = new AverageVector(25);
 	AverageVector aO = new AverageVector(25);
 
-	@Override
-	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-	}
-
-	@Override
-	public void onSensorChanged(SensorEvent event) {
-		if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-			aO.add(new MVector(event.values));
-		} else {
-			aM.add(new MVector(event.values));
-		}
-	}
-	
 	public MVector getOrientation(){
 		MVector ret = aO.getAvg();
 		ret.normalize();
@@ -34,4 +21,15 @@ public class HelloSensorEventListener implements SensorEventListener {
 		return ret;
 	}
 
+	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+	}
+
+	public void onSensorChanged(SensorEvent event) {
+		if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+			aO.add(new MVector(event.values));
+		} else {
+			aM.add(new MVector(event.values));
+		}		
+	}
 }

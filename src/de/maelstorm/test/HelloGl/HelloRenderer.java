@@ -26,7 +26,6 @@ public class HelloRenderer implements Renderer {
 		this.sC = new StarContainer(context);
 	}
 
-	@Override
 	public void onDrawFrame(GL10 gl) {
 		SensorManager.getRotationMatrix(this.R, null, this.listener
 				.getOrientation().getValues(), this.listener.getMagnetic()
@@ -46,7 +45,7 @@ public class HelloRenderer implements Renderer {
 		this.sC.render(gl);
 	}
 
-	@Override
+
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
 		this.width = width;
 		this.height = height;
@@ -65,7 +64,6 @@ public class HelloRenderer implements Renderer {
 			this.fov = 170.0f;
 	}
 
-	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 	}
 }

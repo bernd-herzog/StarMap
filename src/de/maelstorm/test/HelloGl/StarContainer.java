@@ -7,7 +7,6 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -25,6 +24,7 @@ public class StarContainer {
 	FloatBuffer[] mColorBuffer = new FloatBuffer[parts * parts * parts];
 	HashMap<Integer, Long> l;
 	
+	@SuppressWarnings("unchecked")
 	public StarContainer(Context context) {
 		AssetManager am = context.getAssets();
 		InputStream is;
